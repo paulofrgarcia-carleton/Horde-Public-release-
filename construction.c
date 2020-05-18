@@ -252,14 +252,11 @@ struct mapping *create_copy_mappings(struct mapping *m)
 		tmp->dir = m->dir;
 		strcpy(tmp->subnode,m->subnode);
 		strcpy(tmp->argument,m->argument);
-		if(previous == (struct mapping *)0)
+		if(previous != (struct mapping *)0)
 		{
-			previous = tmp;
-		}
-		else
-		{	
 			previous->next = tmp;
 		}
+		previous = tmp;
 		m = m->next;
 	}
 	tmp->next = (struct mapping *)0;
